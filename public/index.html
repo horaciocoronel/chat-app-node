@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="./css/styles.css">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 </head>
-<body>
-	<p>Welcome to the chat</p>
 
-	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
-	<script type="text/javascript" src="/js/index.js"></script>
+<body>
+	<div class="container">
+		<div class="chat-container">
+			<p>Welcome to the chat</p>
+			<ol id="messages"></ol>
+			<form id="message-form">
+				<div class="form-group">
+					<label for="message">Message</label>
+					<input name="message" type="text" placeholder="..." class="form-control mb-2">
+					<button class="btn btn-primary">Send</button>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="/js/index.js"></script>
+	</div>
+	</div>
 </body>
+
 </html>
