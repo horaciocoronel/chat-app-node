@@ -17,19 +17,36 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
+	console.log('New User connected');
+	// socket.emit from Admin text welcome to the chat app
+	socket.emit('newMessage', {
+		from: 'Admin',
+		text: 'Welcome to the chat app',
+
+	})
+	socket.broadcast.emit('newMessage', {
+		from: 'Admin',
+		text: 'A new user joined the conversation'
+	})
+
+	// socket.broadcast.emit from Admin text New usr joined
 
 	socket.on('createMessage', (message) => {
-			console.log('message', {
-				to: message.to,
-				text: message.text,
-				createdAt: Date.now()
-			});
 			io.emit('newMessage', {
 				from: message.from,
 				text: message.text,
 				createdAt: new Date().getTime()
-			})
+			});
+			// socket.broadcast.emit('newMessage', {
+			// 		from: message.from,
+			// 		text: message.text,
+			// 		createdAt: new Date().getTime()
+			// });
 		});
+
+		socket.on('disconnect', () => {
+			console.log('User was disconnected');
+		})
 });
 
 // Port
