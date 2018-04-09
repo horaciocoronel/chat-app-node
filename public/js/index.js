@@ -21,3 +21,20 @@ jQuery('#message-form').on('submit', (e) => {
 	})
 	jQuery('[name=message]').val('')
 });
+
+const locationButton = jQuery('#send-location');
+locationButton.on('click', (e) => {
+		e.preventDefault();
+	if (!navigator.geolocation) {
+		return alert('Geolocation not supported by your browser')
+	}
+	navigator.geolocation.getCurrentPosition((position) => {
+		console.log(position);
+		socket.emit('createLocationMessage', {
+			latitude: position.coords.latitude,
+			longitude: position.coords.longitude
+		});
+	}), () => {
+		alert('Unable to fetch location')
+	}
+})

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./css/styles.css">
@@ -20,7 +21,8 @@
 				<div class="form-group">
 					<label for="message">Message</label>
 					<input name="message" type="text" placeholder="..." class="form-control mb-2">
-					<button class="btn btn-primary">Send</button>
+					<button name="submit" type="submit" class="btn btn-primary"><i class="fas fa-comment"></i></button>
+					<button id="send-location" class="btn btn-secondary"><i class="fas fa-location-arrow"></i></button>
 				</div>
 			</form>
 		</div>
