@@ -32,28 +32,6 @@ io.on('connection', (socket) => {
 		});
 });
 
-
-// io.on('connection', (socket) => {
-// 	console.log('new user connected');
-//
-// 	socket.emit('newEmail', {
-// 		from: 'test@test.net',
-// 		body: 'Test',
-// 		createdAt: Date.now()
-// 	});
-//
-// 	socket.on('disconnect', () => {
-// 		console.log('User was Disconnected')
-// 	});
-//
-// 	socket.on('createEmail', (newEmail) => {
-// 		console.log('createEmail', newEmail);
-// 	})
-// });
-
-
-
-
 // Port
 const port = process.env.PORT || 3000;
 
