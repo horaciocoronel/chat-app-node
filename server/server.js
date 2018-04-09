@@ -17,11 +17,41 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-	console.log('new user connected');
-	socket.on('disconnect', () => {
-		console.log('User was Disconnected')
-	});
-})
+
+	socket.on('createMessage', (message) => {
+			console.log('message', {
+				to: message.to,
+				text: message.text,
+				createdAt: Date.now()
+			});
+			io.emit('newMessage', {
+				from: message.from,
+				text: message.text,
+				createdAt: new Date().getTime()
+			})
+		});
+});
+
+
+// io.on('connection', (socket) => {
+// 	console.log('new user connected');
+//
+// 	socket.emit('newEmail', {
+// 		from: 'test@test.net',
+// 		body: 'Test',
+// 		createdAt: Date.now()
+// 	});
+//
+// 	socket.on('disconnect', () => {
+// 		console.log('User was Disconnected')
+// 	});
+//
+// 	socket.on('createEmail', (newEmail) => {
+// 		console.log('createEmail', newEmail);
+// 	})
+// });
+
+
 
 
 // Port
