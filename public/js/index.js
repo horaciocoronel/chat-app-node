@@ -1,10 +1,18 @@
+// const $ = jQuery;
+$(document).ready(function(){
+	console.log('Im ready');
+    $("#toggle-button").click(function(){
+        $("#toggle-data").slideToggle('slow');
+    });
+});
+
 const socket = io();
 socket.on('connect', () => {
 
 });
 
 socket.on('newMessage', (message) => {
-	console.log('New Message:', message);
+	// console.log('New Message:', message);
 	let li = jQuery('<li></li>')
 	li.text(`${message.from}: ${message.text}`);
 	jQuery('#messages').append(li);
@@ -12,13 +20,15 @@ socket.on('newMessage', (message) => {
 
 jQuery('#message-form').on('submit', (e) => {
 	e.preventDefault();
-
+	// Working here
+	if(jQuery('[name=message]').val()) {
 	socket.emit('createMessage', {
 		from: 'User',
 		text: jQuery('[name=message]').val()
 	}, () => {
 
-	})
+	});
+	}
 	jQuery('[name=message]').val('')
 });
 
