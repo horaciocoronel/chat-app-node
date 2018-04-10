@@ -3,7 +3,7 @@
 
 <head>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./css/styles.css">
 	<meta charset="UTF-8">
@@ -13,23 +13,68 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="chat-container">
-			<p>Welcome to the chat</p>
-			<ol id="messages"></ol>
-			<form id="message-form">
-				<div class="form-group">
-					<label for="message">Message</label>
-					<input name="message" type="text" placeholder="..." class="form-control mb-2">
-					<button name="submit" type="submit" class="btn btn-primary"><i class="fas fa-comment"></i></button>
-					<button id="send-location" class="btn btn-secondary"><i class="fas fa-location-arrow"></i></button>
+	<div class="wrapper">
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<i class="fas fa-comments logo"></i>
+						<h1>My Chat App</h1>
+						<div id="toggle-button" class="toggle"><i class="fas fa-bars"></i></div>
+					</li>
+				</ul>
+				<ul id="toggle-data">
+					<li>
+						<p>Simple chat application running on <strong>node.js</strong>. It uses <strong>Socket.IO</strong> to comunicate between browser and server.</p>
+						<p>Open the same app in a different tab or browser, and you can start chatting.</p>
+					</li>
+					<li>
+						<div class="social-media">
+							<a href="https://www.linkedin.com/in/horacio-coronel/"><i class="fab fa-linkedin-in"></i> Linkedin</a> |
+							<a href="https://github.com/horaciocoronel"><i class="fab fa-github"></i> Github</a>
+						</div>
+					</li>
+					<li class="created-by">Created by <strong><a href="https://github.com/horaciocoronel">Horacio Coronel</a></strong></li>
+				</ul>
+			</nav>
+		</header>
+		<aside>
+			<div class="top">
+				<i class="fas fa-comments"></i>
+				<h1>My Chat App</h1>
+			</div>
+			<div class="middle">
+				<p>Simple chat application running on node.js. It uses Socket.IO to comunicate between browser and server.</p>
+				<p>Open the same app in a different tab or browser, and you can start chatting.</p>
+			</div>
+			<div class="bottom">
+				Created by <strong>Horacio Coronel</strong>
+				<div class="social-media">
+					<i class="fab fa-linkedin-in icon"></i> |
+					<i class="fab fa-github icon"></i>
 				</div>
-			</form>
-		</div>
-		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
-		<script type="text/javascript" src="/js/index.js"></script>
+			</div>
+		</aside>
+		<main>
+			<div class="messages-board">
+				<p>Welcome to the chat</p>
+				<ol id="messages"></ol>
+			</div>
+			<form id="message-form">
+			<div class="message-form">
+					<div class="form-input">
+						<input name="message" type="text" placeholder="Write your message">
+					</div>
+					<div class="form-buttons">
+						<button type="submit" class="send-message"><i class="fab fa-telegram-plane"></i></button>
+						<button id="send-location" class="send-location"><i class="fas fa-map-marker-alt"></i></button>
+					</div>
+			</div>
+		</form>
+		</main>
 	</div>
-	</div>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/js/index.js"></script>
 </body>
 
 </html>
