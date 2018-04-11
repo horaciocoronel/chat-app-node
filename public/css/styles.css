@@ -163,6 +163,9 @@ aside .social-media {
 	button:focus {
 		outline: 0;
 	}
+	button[disabled] {
+		background-color: grey;
+	}
 	header {
 		background-repeat: no-repeat;
 		background-position: center bottom;
