@@ -56,7 +56,7 @@
 			</div>
 		</aside>
 		<main>
-			<div class="messages-board">
+			<div class="messages-board" id="messages-board">
 				<p>Welcome to the chat</p>
 				<ol id="messages"></ol>
 			</div>
@@ -75,22 +75,22 @@
 	</div>
 	<script id="message-template" type="text/template">
 		<li class="message">
-			<div class="message__title">
+			<div class="message-title">
 				<h4>{{from}}</h4>
 				<span>{{createdAt}}</span>
 			</div>
-			<div class="message__body">
+			<div class="message-body">
 				<p>{{text}}</p>
 			</div>
 		</li>
 	</script>
 	<script id="location-message-template" type="text/template">
 		<li class="message">
-			<div class="message__title">
+			<div class="message-title">
 				<h4>{{from}}</h4>
 				<span>{{createdAt}}</span>
 			</div>
-			<div class="message__body">
+			<div class="message-body">
 				<p><a href="{{url}}" target="_blank">My current location</a></p>
 			</div>
 		</li>

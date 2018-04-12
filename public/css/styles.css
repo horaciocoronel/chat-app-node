@@ -44,8 +44,11 @@ main {
 main .messages-board {
 	padding: 1em;
 	background: #e3e3e3;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
 	overflow-y: scroll;
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 }
 
 main .messages-board ol {
@@ -137,6 +140,15 @@ aside .social-media {
 
 ul, ol {
 	list-style: none;
+}
+
+.message-title h4 {
+	font-size: 0.8em;
+	display: inline-block;
+}
+.message-title span {
+	font-size: 0.5em;
+	/* color: #e3e3e3; */
 }
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {

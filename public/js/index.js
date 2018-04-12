@@ -1,4 +1,3 @@
-// const $ = jQuery;
 $(document).ready(function(){
     $("#toggle-button").click(function(){
         $("#toggle-data").slideToggle('slow');
@@ -6,8 +5,24 @@ $(document).ready(function(){
 });
 
 const socket = io();
-socket.on('connect', () => {
 
+scrollToBottom = () => {
+	let messages = jQuery('#messages-board');
+	let newMessage = messages.children('ol');
+
+	let clientHeight = messages.prop('clientHeight');
+	let scrollTop = messages.prop('scrollTop');
+	let scrollHeight = messages.prop('scrollHeight');
+	let newMessageHeight = newMessage.innerHeight();
+	let lastMessageHeight = newMessage.prev().innerHeight();
+
+	if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
+		messages.scrollTop(scrollHeight);
+	}
+}
+
+socket.on('connect', () => {
+	console.log('Connected to Server');
 });
 
 socket.on('newMessage', (message) => {
@@ -19,6 +34,7 @@ socket.on('newMessage', (message) => {
 		createdAt: formattedTime
 	});
 	jQuery('#messages').append(html);
+	scrollToBottom();
 });
 
 socket.on('newLocationMessage', (message) => {
@@ -30,6 +46,7 @@ socket.on('newLocationMessage', (message) => {
 		createdAt: message.formattedTime
 	});
 	jQuery('#messages').append(html);
+	scrollToBottom();
 });
 
 
