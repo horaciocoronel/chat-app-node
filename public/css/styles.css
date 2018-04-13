@@ -220,6 +220,18 @@ ul, ol {
 	margin-top: 1em;
 	text-align: center;
 }
+
+.centered-form .social-media {
+	margin-top: 3.9em;
+	text-align: center;
+	font-size: 0.8em;
+	color: white;
+}
+
+.centered-form .social-media a {
+	text-decoration: none;
+}
+
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
 	aside {
